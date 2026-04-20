@@ -115,5 +115,36 @@
       "description": "此工具允许您从 PDF 文档中提取特定页面。您可以指定要提取的单个页面或页面范围。",
       "title": "拆分 PDF"
     }
+  },
+  "pdfOrganizer": {
+    "title": "PDF 组织者",
+    "description": "组织、重排和合并多个 PDF 文件的页面。选择特定页面并按任意顺序排列它们。",
+    "shortDescription": "组织和重排 PDF 页面",
+    "longDescription": "这个高级 PDF 组织者允许您上传多个 PDF 文件，从每个文件中选择特定页面，并重排它们以创建新的 PDF 文档。非常适合合并不同 PDF 中的特定页面或在单个文档中重新排列页面。",
+    "uploadPdfs": "上传 PDF 文件",
+    "uploadDescription": "点击此处或拖放 PDF 文件",
+    "loading": "正在加载 PDF",
+    "totalFiles": "{{count}} 个文件",
+    "totalPages": "共 {{count}} 页",
+    "selectedPages": "已选择 {{count}} 页",
+    "organize": "组织并导出",
+    "processing": "处理中...",
+    "result": "已组织的 PDF",
+    "viewSettings": "视图设置",
+    "viewByFile": "按文件查看",
+    "viewAllPages": "查看所有页面",
+    "pageOrder": "页面顺序（点击上下按钮重排）",
+    "noPagesSelected": "未选择任何页面。点击页面以选择它们。",
+    "page": "页",
+    "pageCount": "{{count}} 页",
+    "selected": "已选择",
+    "selectAll": "全选",
+    "deselectAll": "取消全选",
+    "moveUp": "上移",
+    "moveDown": "下移",
+    "toolInfo": {
+      "title": "如何使用 PDF 组织者",
+      "description": "上传一个或多个 PDF 文件。浏览页面并选择您想要包含的页面。切换到「查看所有页面」模式以查看和重排所有已选页面。点击「组织并导出」以按指定顺序创建包含所选页面的新 PDF。"
+    }
   }
 }

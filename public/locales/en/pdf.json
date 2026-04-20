@@ -127,5 +127,36 @@
       "description": "This tool allows you to extract specific pages from a PDF document. You can specify individual pages or ranges of pages to extract.",
       "title": "Split PDF"
     }
+  },
+  "pdfOrganizer": {
+    "title": "PDF Organizer",
+    "description": "Organize, reorder, and combine pages from multiple PDF files. Select specific pages and arrange them in any order.",
+    "shortDescription": "Organize and reorder PDF pages",
+    "longDescription": "This advanced PDF organizer allows you to upload multiple PDF files, select specific pages from each, and reorder them to create a new PDF document. Perfect for merging specific pages from different PDFs or rearranging pages within a single document.",
+    "uploadPdfs": "Upload PDF Files",
+    "uploadDescription": "Click here or drag and drop PDF files",
+    "loading": "Loading PDF",
+    "totalFiles": "{{count}} files",
+    "totalPages": "{{count}} total pages",
+    "selectedPages": "{{count}} selected",
+    "organize": "Organize & Export",
+    "processing": "Processing...",
+    "result": "Organized PDF",
+    "viewSettings": "View Settings",
+    "viewByFile": "View by File",
+    "viewAllPages": "View All Pages",
+    "pageOrder": "Page Order (drag to reorder)",
+    "noPagesSelected": "No pages selected. Click on pages to select them.",
+    "page": "Page",
+    "pageCount": "{{count}} pages",
+    "selected": "Selected",
+    "selectAll": "Select All",
+    "deselectAll": "Deselect All",
+    "moveUp": "Move Up",
+    "moveDown": "Move Down",
+    "toolInfo": {
+      "title": "How to Use PDF Organizer",
+      "description": "Upload one or more PDF files. Browse through pages and select the ones you want to include. Switch to 'View All Pages' mode to see and reorder all selected pages. Click 'Organize & Export' to create your new PDF with the selected pages in the specified order."
+    }
   }
 }

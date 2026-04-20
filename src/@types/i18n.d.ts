@@ -13,6 +13,8 @@ import audio from '../../public/locales/en/audio.json';
 import xml from '../../public/locales/en/xml.json';
 import image from '../../public/locales/en/image.json';
 import converters from '../../public/locales/en/converters.json';
+import system from '../../public/locales/en/system.json';
+import code from '../../public/locales/en/code.json';
 
 declare module 'i18next' {
   interface CustomTypeOptions {
@@ -30,6 +32,8 @@ declare module 'i18next' {
       xml: typeof xml;
       image: typeof image;
       converters: typeof converters;
+      system: typeof system;
+      code: typeof code;
     };
   }
 }

@@ -75,6 +75,14 @@
     "xml": {
       "description": "处理 XML 数据结构的工具 - 查看器、美化器、验证器等等",
       "title": "XML 工具"
+    },
+    "system": {
+      "description": "用于与本地系统和文件交互的工具 - 文件夹对比、文件系统访问等。",
+      "title": "系统工具"
+    },
+    "code": {
+      "description": "供开发人员和编码使用的工具 - 代码沙盒、HTML/CSS/JS 预览等。",
+      "title": "开发工具"
     }
   },
   "csv": {

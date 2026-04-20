@@ -34,7 +34,9 @@ export type ToolCategory =
   | 'pdf'
   | 'audio'
   | 'xml'
-  | 'converters';
+  | 'converters'
+  | 'system'
+  | 'code';
 
 export interface DefinedTool {
   type: ToolCategory;

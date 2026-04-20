@@ -1,0 +1,38 @@
+{
+  "folderCompare": {
+    "title": "文件夹对比",
+    "description": "使用 MD5 校验或文件大小对比两个本地文件夹，找出差异。",
+    "shortDescription": "对比两个文件夹找出差异",
+    "longDescription": "此工具允许您使用 File System Access API 对比两个本地文件夹。您可以通过 MD5 哈希（最准确）或文件大小（更快）来对比文件。该工具将显示两个文件夹之间新增、删除、修改或未更改的文件。",
+    "selectFolders": "选择要对比的文件夹",
+    "selectFolder1": "选择文件夹 1",
+    "selectFolder2": "选择文件夹 2",
+    "filesCount": "{{count}} 个文件",
+    "compare": "对比",
+    "comparing": "对比中...",
+    "comparingShort": "对比中",
+    "computingHashes": "正在计算 MD5 哈希值。大文件可能需要一些时间...",
+    "comparisonSettings": "对比设置",
+    "compareByMd5": "按 MD5 哈希对比",
+    "compareByMd5Description": "最准确的对比方式，但大文件较慢",
+    "compareBySize": "按文件大小对比",
+    "compareBySizeDescription": "更快的对比方式，但准确性较低",
+    "folder1": "文件夹 1",
+    "folder2": "文件夹 2",
+    "added": "新增",
+    "removed": "删除",
+    "modified": "修改",
+    "unchanged": "未变",
+    "addedFiles": "新增文件（仅在文件夹 2 中）",
+    "removedFiles": "删除文件（仅在文件夹 1 中）",
+    "modifiedFiles": "修改文件（内容已更改）",
+    "unchangedFiles": "未变文件（两者相同）",
+    "summary": "对比摘要",
+    "errorSelectingFolder": "选择文件夹出错，请重试。",
+    "errorComparing": "对比文件夹出错，请重试。",
+    "toolInfo": {
+      "title": "如何使用文件夹对比",
+      "description": "从本地文件系统选择两个文件夹。选择 MD5 哈希对比（准确但慢）或文件大小对比（快但准确性较低）。点击「对比」查看两个文件夹之间的差异。"
+    }
+  }
+}

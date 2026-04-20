@@ -14,6 +14,8 @@ import { IconifyIcon } from '@iconify/react';
 import { pdfTools } from '../pages/tools/pdf';
 import { xmlTools } from '../pages/tools/xml';
 import { convertersTools } from '../pages/tools/converters';
+import { systemTools } from '../pages/tools/system';
+import { codeTools } from '../pages/tools/code';
 import { TFunction } from 'i18next';
 import { FullI18nKey, I18nNamespaces } from '../i18n';
 
@@ -31,7 +33,9 @@ const toolCategoriesOrder: ToolCategory[] = [
   'png',
   'xml',
   'gif',
-  'converters'
+  'converters',
+  'system',
+  'code'
 ];
 export const tools: DefinedTool[] = [
   ...imageTools,
@@ -45,7 +49,9 @@ export const tools: DefinedTool[] = [
   ...timeTools,
   ...audioTools,
   ...xmlTools,
-  ...convertersTools
+  ...convertersTools,
+  ...systemTools,
+  ...codeTools
 ];
 const categoriesConfig: {
   type: ToolCategory;
@@ -136,6 +142,18 @@ const categoriesConfig: {
     icon: 'streamline-plump:convert-pdf-1',
     value: 'translation:categories.converters.description',
     title: 'translation:categories.converters.title'
+  },
+  {
+    type: 'system',
+    icon: 'material-symbols:folder-outline',
+    value: 'translation:categories.system.description',
+    title: 'translation:categories.system.title'
+  },
+  {
+    type: 'code',
+    icon: 'material-symbols:code-outline',
+    value: 'translation:categories.code.description',
+    title: 'translation:categories.code.title'
   }
 ];
 const CATEGORIES_USER_TYPES_MAPPINGS: Partial<Record<ToolCategory, UserType>> =
@@ -148,7 +166,8 @@ const CATEGORIES_USER_TYPES_MAPPINGS: Partial<Record<ToolCategory, UserType>> =
     'image-generic': 'generalUsers',
     video: 'generalUsers',
     audio: 'generalUsers',
-    converters: 'generalUsers'
+    converters: 'generalUsers',
+    code: 'developers'
   };
 // Filter tools by user types
 export const filterToolsByUserTypes = (
