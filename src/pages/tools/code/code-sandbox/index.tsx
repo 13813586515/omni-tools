@@ -93,19 +93,8 @@ export default function CodeSandbox({
   );
 
   const runPreview = useCallback(() => {
-    if (iframeRef.current) {
-      const html = generatePreviewHtml(content);
-      const blob = new Blob([html], { type: 'text/html' });
-      const url = URL.createObjectURL(blob);
-
-      if (iframeRef.current.src) {
-        URL.revokeObjectURL(iframeRef.current.src);
-      }
-
-      iframeRef.current.src = url;
-      setPreviewKey((prev) => prev + 1);
-    }
-  }, [content]);
+    setPreviewKey((prev) => prev + 1);
+  }, []);
 
   useEffect(() => {
     if (autoRefresh) {
@@ -321,7 +310,8 @@ export default function CodeSandbox({
           ref={iframeRef}
           key={previewKey}
           title="preview"
-          sandbox="allow-scripts allow-modals allow-popups"
+          sandbox="allow-scripts allow-modals allow-popups allow-same-origin"
+          srcDoc={generatePreviewHtml(content)}
           style={{
             width: '100%',
             height: '100%',
