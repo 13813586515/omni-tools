@@ -1,78 +1,5 @@
 import { InitialValuesType, SVGOCleanResult } from './types';
 
-function getSVGOPlugins(options: InitialValuesType): unknown[] {
-  const plugins: unknown[] = [];
-
-  if (options.removeComments) plugins.push('removeComments');
-  if (options.removeMetadata) plugins.push('removeMetadata');
-  if (options.removeEditorsNSData) plugins.push('removeEditorsNSData');
-  if (options.cleanupAttrs) plugins.push('cleanupAttrs');
-  if (options.inlineStyles) plugins.push('inlineStyles');
-  if (options.minifyStyles) plugins.push('minifyStyles');
-  if (options.convertStyleToAttrs) plugins.push('convertStyleToAttrs');
-  if (options.cleanupIDs) plugins.push('cleanupIDs');
-  if (options.removeRasterImages) plugins.push('removeRasterImages');
-  if (options.removeUselessDefs) plugins.push('removeUselessDefs');
-  if (options.cleanupNumericValues) plugins.push('cleanupNumericValues');
-  if (options.convertColors) plugins.push('convertColors');
-  if (options.removeUnknownsAndDefaults)
-    plugins.push('removeUnknownsAndDefaults');
-  if (options.removeNonInheritableGroupAttrs)
-    plugins.push('removeNonInheritableGroupAttrs');
-  if (options.removeUselessStrokeAndFill)
-    plugins.push('removeUselessStrokeAndFill');
-  if (options.cleanupEnableBackground) plugins.push('cleanupEnableBackground');
-  if (options.removeHiddenElems) plugins.push('removeHiddenElems');
-  if (options.removeEmptyText) plugins.push('removeEmptyText');
-  if (options.convertShapeToPath) plugins.push('convertShapeToPath');
-  if (options.moveElemsAttrsToGroup) plugins.push('moveElemsAttrsToGroup');
-  if (options.moveGroupAttrsToElems) plugins.push('moveGroupAttrsToElems');
-  if (options.collapseGroups) plugins.push('collapseGroups');
-  if (options.convertPathData) plugins.push('convertPathData');
-  if (options.convertTransform) plugins.push('convertTransform');
-  if (options.removeEmptyAttrs) plugins.push('removeEmptyAttrs');
-  if (options.removeEmptyContainers) plugins.push('removeEmptyContainers');
-  if (options.mergePaths) plugins.push('mergePaths');
-  if (options.removeUnusedNS) plugins.push('removeUnusedNS');
-  if (options.sortAttrs) plugins.push('sortAttrs');
-  if (options.sortDefsChildren) plugins.push('sortDefsChildren');
-  if (options.removeTitle) plugins.push('removeTitle');
-  if (options.removeDesc) plugins.push('removeDesc');
-  if (options.removeDimensions) plugins.push('removeDimensions');
-  if (options.removeViewBox) plugins.push('removeViewBox');
-  if (options.removeOffCanvasPaths) plugins.push('removeOffCanvasPaths');
-  if (options.removeScripts) plugins.push('removeScripts');
-  if (options.removeStyleElement) plugins.push('removeStyleElement');
-  if (options.removeXMLNS) plugins.push('removeXMLNS');
-
-  if (options.removeAttrs && options.removeAttrsList) {
-    const attrs = options.removeAttrsList
-      .split(',')
-      .map((a) => a.trim())
-      .filter(Boolean);
-    if (attrs.length > 0) {
-      plugins.push({
-        name: 'removeAttrs',
-        params: { attrs }
-      });
-    }
-  }
-
-  if (options.addClassesToSVGElement && options.className) {
-    plugins.push({
-      name: 'addClassesToSVGElement',
-      params: {
-        classNames: options.className
-          .split(',')
-          .map((c) => c.trim())
-          .filter(Boolean)
-      }
-    });
-  }
-
-  return plugins;
-}
-
 function fallbackSVGOptimize(svg: string, options: InitialValuesType): string {
   let result = svg;
 
@@ -99,11 +26,11 @@ function fallbackSVGOptimize(svg: string, options: InitialValuesType): string {
 
   if (options.removeEditorsNSData) {
     result = result.replace(
-      /\sxmlns:(inkscape|sodipodi|sketch|illustrator|figma|corel)[^=]*="[^"]*"/gi,
+      /\sxmlns:(inkscape|sodipodi|sketch|illustrator|figma|corel|adobe)[^=]*="[^"]*"/gi,
       ''
     );
     result = result.replace(
-      /\s(inkscape|sodipodi|sketch|illustrator|figma|corel):[^=]*="[^"]*"/gi,
+      /\s(inkscape|sodipodi|sketch|illustrator|figma|corel|adobe):[^=]*="[^"]*"/gi,
       ''
     );
   }
@@ -114,6 +41,23 @@ function fallbackSVGOptimize(svg: string, options: InitialValuesType): string {
 
   if (options.removeStyleElement) {
     result = result.replace(/<style[\s\S]*?<\/style>/gi, '');
+  }
+
+  if (options.removeXMLNS) {
+    result = result.replace(/\sxmlns="[^"]*"/g, '');
+    result = result.replace(/\sxmlns:xlink="[^"]*"/g, '');
+  }
+
+  if (options.removeDimensions) {
+    result = result.replace(/\swidth="[^"]*"/g, '');
+    result = result.replace(/\sheight="[^"]*"/g, '');
+    result = result.replace(/\swidth='[^']*'/g, '');
+    result = result.replace(/\sheight='[^']*'/g, '');
+  }
+
+  if (options.removeViewBox) {
+    result = result.replace(/\sviewBox="[^"]*"/g, '');
+    result = result.replace(/\sviewBox='[^']*'/g, '');
   }
 
   if (options.cleanupNumericValues) {
@@ -131,15 +75,50 @@ function fallbackSVGOptimize(svg: string, options: InitialValuesType): string {
     result = result.replace(/\s[\w-]+=''(\s|>)/g, '$1');
   }
 
+  if (options.removeHiddenElems) {
+    result = result.replace(
+      /<[^>]*style="[^"]*display:\s*none[^"]*"[^>]*>[\s\S]*?<\/[^>]*>/gi,
+      ''
+    );
+    result = result.replace(
+      /<[^>]*style='[^']*display:\s*none[^']*'[^>]*>[\s\S]*?<\/[^>]*>/gi,
+      ''
+    );
+  }
+
+  if (options.removeEmptyText) {
+    result = result.replace(/<text[^>]*>\s*<\/text>/gi, '');
+    result = result.replace(/<tspan[^>]*>\s*<\/tspan>/gi, '');
+  }
+
+  if (options.removeEmptyContainers) {
+    let prevLength = -1;
+    while (prevLength !== result.length) {
+      prevLength = result.length;
+      result = result.replace(/<g\s*\/>/g, '');
+      result = result.replace(/<g[^>]*>\s*<\/g>/g, '');
+      result = result.replace(/<defs[^>]*>\s*<\/defs>/g, '');
+    }
+  }
+
+  if (options.removeAttrs && options.removeAttrsList) {
+    const attrs = options.removeAttrsList
+      .split(',')
+      .map((a) => a.trim())
+      .filter(Boolean);
+
+    for (const attr of attrs) {
+      const regexDouble = new RegExp(`\\s${attr}="[^"]*"`, 'gi');
+      const regexSingle = new RegExp(`\\s${attr}='[^']*'`, 'gi');
+      result = result.replace(regexDouble, '');
+      result = result.replace(regexSingle, '');
+    }
+  }
+
   result = result.replace(/>\s+</g, '><');
   result = result.replace(/\s+/g, ' ');
   result = result.replace(/> </g, '><');
   result = result.trim();
-
-  if (options.removeEmptyContainers) {
-    result = result.replace(/<g\s*\/>/g, '');
-    result = result.replace(/<g[^>]*>\s*<\/g>/g, '');
-  }
 
   return result;
 }
@@ -149,27 +128,7 @@ export async function optimizeSVG(
   options: InitialValuesType
 ): Promise<SVGOCleanResult> {
   const originalSize = new Blob([svgContent]).size;
-  let optimizedSVG: string;
-
-  try {
-    // @ts-ignore - svgo is optional, will use fallback if not available
-    const svgoModule = await import('svgo/dist/svgo.browser.js').catch(
-      () => null
-    );
-
-    if (svgoModule && svgoModule.optimize) {
-      const plugins = getSVGOPlugins(options);
-      const result = svgoModule.optimize(svgContent, {
-        multipass: true,
-        plugins: plugins.length > 0 ? plugins : ['preset-default']
-      });
-      optimizedSVG = typeof result === 'string' ? result : result.data;
-    } else {
-      optimizedSVG = fallbackSVGOptimize(svgContent, options);
-    }
-  } catch {
-    optimizedSVG = fallbackSVGOptimize(svgContent, options);
-  }
+  const optimizedSVG = fallbackSVGOptimize(svgContent, options);
 
   const optimizedSize = new Blob([optimizedSVG]).size;
   const savedBytes = originalSize - optimizedSize;
