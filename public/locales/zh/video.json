@@ -116,5 +116,36 @@
     "description": "将视频文件转换为 GIF 动画格式。提取特定时间范围并创建可共享的动画图像。",
     "shortDescription": "将视频转换为动画 GIF",
     "title": "视频转GIF"
+  },
+  "extractFrames": {
+    "title": "视频抽帧",
+    "description": "使用 ffmpeg.wasm 从视频文件中提取帧。在浏览器中完全离线地捕获特定时间的单帧、按固定间隔提取帧，或提取关键帧（I帧）。",
+    "shortDescription": "从视频中提取帧（PNG、JPG、WebP）",
+    "longDescription": "这个强大的工具允许您直接在浏览器中从视频文件提取图像帧，无需上传到任何服务器。使用 ffmpeg.wasm，您可以通过三种不同模式提取帧：特定时间的单帧、按固定间隔的多帧，或所有关键帧（I帧）以高效提取缩略图。支持 PNG、JPG 和 WebP 等输出格式，并可调节质量设置。",
+    "toolInfo": {
+      "title": "什么是 {{title}}？"
+    },
+    "inputTitle": "输入视频",
+    "resultTitle": "提取的帧",
+    "extracting": "正在提取帧...",
+    "extractMode": "提取模式",
+    "singleFrame": "单帧",
+    "byInterval": "按时间间隔",
+    "keyframes": "仅关键帧",
+    "frameSettings": "帧设置",
+    "frameTime": "帧时间（秒）",
+    "frameTimeDescription": "指定捕获单帧的确切时间（秒）",
+    "intervalSettings": "间隔设置",
+    "interval": "间隔（秒）",
+    "intervalDescription": "每隔 N 秒提取一帧",
+    "maxFrames": "最大帧数",
+    "maxFramesDescription": "限制提取的帧数",
+    "timeRange": "时间范围",
+    "startTime": "开始时间（秒）",
+    "endTime": "结束时间（秒）",
+    "outputSettings": "输出设置",
+    "outputFormat": "输出格式",
+    "quality": "质量（1-100）",
+    "qualityDescription": "值越高质量越好，但文件越大"
   }
 }

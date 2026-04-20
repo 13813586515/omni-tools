@@ -57,5 +57,33 @@
       "title": "什么是 {{title}}？"
     },
     "trimmingAudio": "修剪音频"
+  },
+  "spectrumEditor": {
+    "title": "频谱可视化编辑器",
+    "description": "使用实时频率频谱分析可视化音频。在浏览器中应用淡入淡出效果、音量标准化以及音频剪辑功能。",
+    "shortDescription": "音频频谱可视化，带淡入淡出效果和音量标准化",
+    "longDescription": "这个高级音频编辑器使用 Web Audio API 提供实时频率频谱可视化。在播放音频时观看频率带和波形。应用专业音频效果，包括淡入淡出过渡、音量标准化到目标水平，以及精确的开始和结束时间控制剪辑。在浏览器中完全离线处理音频，支持 MP3、WAV 和 AAC 格式。",
+    "toolInfo": {
+      "title": "什么是 {{title}}？"
+    },
+    "inputTitle": "输入音频",
+    "resultTitle": "处理后的音频",
+    "processing": "正在处理音频...",
+    "fadeSettings": "淡入淡出设置",
+    "fadeInDuration": "淡入时长（秒）",
+    "fadeInDurationDescription": "淡入效果应该持续多少秒",
+    "fadeOutDuration": "淡出时长（秒）",
+    "fadeOutDurationDescription": "淡出效果应该持续多少秒",
+    "volumeSettings": "音量设置",
+    "normalizeVolume": "标准化音量",
+    "targetVolume": "目标音量（%）",
+    "targetVolumeDescription": "标准化的目标音量级别（0-100）",
+    "trimSettings": "剪辑设置",
+    "startTime": "开始时间",
+    "startTimeDescription": "开始时间格式为 HH:MM:SS（例如 00:00:30）",
+    "endTime": "结束时间",
+    "endTimeDescription": "结束时间格式为 HH:MM:SS（例如 00:01:30）",
+    "outputSettings": "输出设置",
+    "outputFormat": "输出格式"
   }
 }

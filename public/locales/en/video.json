@@ -145,5 +145,36 @@
     "description": "Convert video files to animated GIF format. Extract specific time ranges and create shareable animated images.",
     "shortDescription": "Convert video to animated GIF",
     "title": "Video to GIF"
+  },
+  "extractFrames": {
+    "title": "Extract Video Frames",
+    "description": "Extract frames from video files using ffmpeg.wasm. Capture single frames at specific times, extract frames at regular intervals, or extract keyframes (I-frames) from videos entirely offline in your browser.",
+    "shortDescription": "Extract frames from videos (PNG, JPG, WebP)",
+    "longDescription": "This powerful tool allows you to extract image frames from video files directly in your browser without uploading to any server. Using ffmpeg.wasm, you can extract frames in three different modes: single frame at a specific time, multiple frames at regular intervals, or all keyframes (I-frames) for efficient thumbnail extraction. Supports output formats including PNG, JPG, and WebP with adjustable quality settings.",
+    "toolInfo": {
+      "title": "What is {{title}}?"
+    },
+    "inputTitle": "Input Video",
+    "resultTitle": "Extracted Frames",
+    "extracting": "Extracting frames...",
+    "extractMode": "Extraction Mode",
+    "singleFrame": "Single Frame",
+    "byInterval": "By Time Interval",
+    "keyframes": "Keyframes Only",
+    "frameSettings": "Frame Settings",
+    "frameTime": "Frame Time (seconds)",
+    "frameTimeDescription": "Specify the exact time in seconds to capture a single frame",
+    "intervalSettings": "Interval Settings",
+    "interval": "Interval (seconds)",
+    "intervalDescription": "Extract one frame every N seconds",
+    "maxFrames": "Maximum Frames",
+    "maxFramesDescription": "Limit the number of frames to extract",
+    "timeRange": "Time Range",
+    "startTime": "Start Time (seconds)",
+    "endTime": "End Time (seconds)",
+    "outputSettings": "Output Settings",
+    "outputFormat": "Output Format",
+    "quality": "Quality (1-100)",
+    "qualityDescription": "Higher values mean better quality but larger file size"
   }
 }

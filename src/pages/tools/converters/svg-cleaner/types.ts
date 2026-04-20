@@ -1,0 +1,52 @@
+export type InitialValuesType = {
+  removeComments: boolean;
+  removeMetadata: boolean;
+  removeEditorsNSData: boolean;
+  cleanupAttrs: boolean;
+  inlineStyles: boolean;
+  minifyStyles: boolean;
+  convertStyleToAttrs: boolean;
+  cleanupIDs: boolean;
+  removeRasterImages: boolean;
+  removeUselessDefs: boolean;
+  cleanupNumericValues: boolean;
+  convertColors: boolean;
+  removeUnknownsAndDefaults: boolean;
+  removeNonInheritableGroupAttrs: boolean;
+  removeUselessStrokeAndFill: boolean;
+  removeViewBox: boolean;
+  cleanupEnableBackground: boolean;
+  removeHiddenElems: boolean;
+  removeEmptyText: boolean;
+  convertShapeToPath: boolean;
+  moveElemsAttrsToGroup: boolean;
+  moveGroupAttrsToElems: boolean;
+  collapseGroups: boolean;
+  convertPathData: boolean;
+  convertTransform: boolean;
+  removeEmptyAttrs: boolean;
+  removeEmptyContainers: boolean;
+  mergePaths: boolean;
+  removeUnusedNS: boolean;
+  sortAttrs: boolean;
+  sortDefsChildren: boolean;
+  removeTitle: boolean;
+  removeDesc: boolean;
+  removeDimensions: boolean;
+  removeAttrs: boolean;
+  removeAttrsList: string;
+  addClassesToSVGElement: boolean;
+  className: string;
+  removeOffCanvasPaths: boolean;
+  removeScripts: boolean;
+  removeStyleElement: boolean;
+  removeXMLNS: boolean;
+};
+
+export interface SVGOCleanResult {
+  data: string;
+  originalSize: number;
+  optimizedSize: number;
+  savedBytes: number;
+  savedPercent: number;
+}

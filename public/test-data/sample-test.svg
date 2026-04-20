@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This is a sample SVG file with lots of redundant data for testing SVG Cleaner -->
+<!-- Exported from Figma with lots of editor-specific metadata -->
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:figma="http://www.figma.com/figma" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd">
+  <sodipodi:namedview id="base" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1.0" inkscape:pageopacity="0.0" inkscape:pageshadow="2" inkscape:zoom="1.0" inkscape:cx="200" inkscape:cy="150" inkscape:document-units="px" inkscape:current-layer="layer1" showgrid="false" inkscape:window-width="1920" inkscape:window-height="1080" inkscape:window-x="0" inkscape:window-y="0" inkscape:window-maximized="1"/>
+  <metadata id="metadata7">
+    <rdf:RDF xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+      <cc:Work rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+        <dc:title>Sample SVG with Redundant Data</dc:title>
+        <dc:description>This SVG contains lots of metadata, comments, and editor-specific data for testing SVG optimization tools.</dc:description>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>Test Creator</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:date>2024-01-15</dc:date>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <title id="title9">Sample Test SVG</title>
+  <desc id="desc11">This is a description that can be removed during optimization</desc>
+  <defs id="defs2">
+    <!-- This is an empty defs section that should be removed -->
+  </defs>
+  <g id="layer1" inkscape:groupmode="layer" inkscape:label="Layer 1" transform="">
+    <!-- Redundant group with unnecessary attributes -->
+    <g id="group1" transform="" style="">
+      <!-- A simple rectangle with lots of default attributes -->
+      <rect id="rect1" x="50" y="50" width="100" height="80" rx="10" ry="10" fill="#FF6B6B" stroke="#000000" stroke-width="2" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" stroke-dasharray="none" stroke-dashoffset="0" stroke-opacity="1" fill-opacity="1" opacity="1" style="fill: #FF6B6B; stroke: #000000;"/>
+    </g>
+    <!-- Another group that could be collapsed -->
+    <g id="group2">
+      <!-- Circle with verbose numeric values -->
+      <circle id="circle1" cx="200.000000000" cy="100.000000000" r="40.000000000" fill="#4ECDC4" stroke-width="0" style="fill: #4ECDC4;"/>
+    </g>
+    <!-- Hidden element that should be removed -->
+    <g id="hiddenGroup" style="display: none; visibility: hidden;">
+      <rect id="hiddenRect" x="0" y="0" width="10" height="10" fill="#000000"/>
+    </g>
+    <!-- Path with verbose coordinates -->
+    <path id="path1" d="M 250.000000000 50.000000000 L 350.000000000 50.000000000 L 350.000000000 130.000000000 L 250.000000000 130.000000000 Z" fill="#45B7D1" stroke="#1A535C" stroke-width="2" style="fill: #45B7D1;"/>
+    <!-- Text element -->
+    <text id="text1" x="50" y="200" font-family="Arial, sans-serif" font-size="24" font-weight="normal" font-style="normal" text-decoration="none" fill="#2C3E50" style="font-family: Arial, sans-serif; font-size: 24px; fill: #2C3E50;">Hello SVG!</text>
+    <!-- Empty text that should be removed -->
+    <text id="emptyText" x="100" y="250"></text>
+    <!-- Nested groups that can be collapsed -->
+    <g id="nestedGroup1">
+      <g id="nestedGroup2">
+        <g id="nestedGroup3">
+          <circle id="nestedCircle" cx="300" cy="200" r="25" fill="#9B59B6"/>
+        </g>
+      </g>
+    </g>
+    <!-- Element with inline style -->
+    <rect id="styledRect" x="50" y="230" width="80" height="40" style="fill: #E74C3C; stroke: #C0392B; stroke-width: 2px; opacity: 1;"/>
+  </g>
+  <!-- Script that could be a security risk -->
+  <script type="text/javascript">
+    // <![CDATA[
+    alert('This is a test script');
+    // ]]>
+  </script>
+  <!-- Another comment -->
+  <!-- End of SVG -->
+</svg>

@@ -57,5 +57,33 @@
       "title": "What is {{title}}?"
     },
     "trimmingAudio": "Trimming Audio"
+  },
+  "spectrumEditor": {
+    "title": "Spectrum Visualizer & Audio Editor",
+    "description": "Visualize audio with real-time frequency spectrum analysis. Apply fade in/out effects, normalize volume levels, and trim audio files all in your browser.",
+    "shortDescription": "Audio spectrum visualization with fade effects and volume normalization",
+    "longDescription": "This advanced audio editor provides real-time frequency spectrum visualization using the Web Audio API. Watch the frequency bands and waveform as your audio plays. Apply professional audio effects including fade in/out transitions, volume normalization to target levels, and precise trimming with start and end time controls. Process your audio entirely offline in your browser with support for MP3, WAV, and AAC formats.",
+    "toolInfo": {
+      "title": "What is {{title}}?"
+    },
+    "inputTitle": "Input Audio",
+    "resultTitle": "Processed Audio",
+    "processing": "Processing audio...",
+    "fadeSettings": "Fade Effects",
+    "fadeInDuration": "Fade In Duration (seconds)",
+    "fadeInDurationDescription": "How many seconds the fade-in effect should last",
+    "fadeOutDuration": "Fade Out Duration (seconds)",
+    "fadeOutDurationDescription": "How many seconds the fade-out effect should last",
+    "volumeSettings": "Volume Settings",
+    "normalizeVolume": "Normalize Volume",
+    "targetVolume": "Target Volume (%)",
+    "targetVolumeDescription": "Target volume level for normalization (0-100)",
+    "trimSettings": "Trim Settings",
+    "startTime": "Start Time",
+    "startTimeDescription": "Start time in format HH:MM:SS (e.g., 00:00:30)",
+    "endTime": "End Time",
+    "endTimeDescription": "End time in format HH:MM:SS (e.g., 00:01:30)",
+    "outputSettings": "Output Settings",
+    "outputFormat": "Output Format"
   }
 }
