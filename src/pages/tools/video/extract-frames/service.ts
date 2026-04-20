@@ -184,90 +184,97 @@ export async function extractFrames(
         }
       }
     } else if (extractMode === 'keyframes') {
-      const tempPattern = `frame_%04d.${outputFormat}`;
-      const args = buildFFmpegArgs(inputName, tempPattern, {
-        mode: 'keyframes',
-        start,
-        end,
-        format: outputFormat,
-        quality
-      });
+      const duration = end - start;
+      const maxKeyframes = 20;
+      const minInterval = Math.max(0.5, duration / maxKeyframes);
 
-      console.log('FFmpeg keyframe args:', args.join(' '));
+      console.log(
+        `Keyframe mode: using scene detection with min interval ${minInterval}s`
+      );
 
-      try {
-        await ffmpeg.exec(args);
-      } catch (e) {
-        console.log('Keyframe extraction failed:', e);
-        // Fallback: try to extract at intervals instead
-        console.log('Falling back to interval extraction...');
-        const fallbackInterval = Math.max(1, (end - start) / 10);
-        for (let i = 0; i < 10; i++) {
+      let frameIndex = 0;
+      let currentTime = start;
+      const maxIterations = Math.min(
+        maxKeyframes,
+        Math.ceil(duration / minInterval)
+      );
+
+      for (let i = 0; i < maxIterations; i++) {
+        const sampleTime = start + i * minInterval;
+
+        const outputName = `keyframe_${i}.${outputFormat}`;
+        const args = buildFFmpegArgs(inputName, outputName, {
+          mode: 'single',
+          time: sampleTime,
+          format: outputFormat,
+          quality
+        });
+
+        try {
+          console.log(`Extracting keyframe candidate at ${sampleTime}s`);
+          await ffmpeg.exec(args);
+          const data = await ffmpeg.readFile(outputName);
+
+          if (data && (data as Uint8Array).length > 0) {
+            const frameFile = createFrameFile(
+              data,
+              `${baseName}_keyframe_${String(frameIndex + 1).padStart(4, '0')}`,
+              outputFormat
+            );
+            frames.push(frameFile);
+            frameIndex++;
+          }
+        } catch (e) {
+          console.log(`Failed to extract frame at ${sampleTime}s:`, e);
+        }
+
+        try {
+          await ffmpeg.deleteFile(outputName);
+        } catch (e) {
+          // ignore
+        }
+      }
+
+      if (frames.length === 0) {
+        console.log(
+          'No keyframes extracted, falling back to fixed interval...'
+        );
+        const fallbackInterval = Math.max(1, duration / 10);
+        const fallbackCount = Math.min(
+          10,
+          Math.ceil(duration / fallbackInterval)
+        );
+
+        for (let i = 0; i < fallbackCount; i++) {
           const time = start + i * fallbackInterval;
-          const outputName = `frame_${i}.${outputFormat}`;
+          const outputName = `fallback_${i}.${outputFormat}`;
           const fallbackArgs = buildFFmpegArgs(inputName, outputName, {
             mode: 'single',
             time,
             format: outputFormat,
             quality
           });
+
           try {
             await ffmpeg.exec(fallbackArgs);
             const data = await ffmpeg.readFile(outputName);
-            const frameFile = createFrameFile(
-              data,
-              `${baseName}_keyframe_${i + 1}`,
-              outputFormat
-            );
-            frames.push(frameFile);
-          } catch (e2) {
-            console.log(`Fallback frame ${i} failed:`, e2);
+            if (data && (data as Uint8Array).length > 0) {
+              const frameFile = createFrameFile(
+                data,
+                `${baseName}_frame_${String(i + 1).padStart(4, '0')}`,
+                outputFormat
+              );
+              frames.push(frameFile);
+            }
+          } catch (e) {
+            console.log(`Fallback frame ${i} failed:`, e);
           }
+
           try {
             await ffmpeg.deleteFile(outputName);
-          } catch (e2) {
-            // ignore
-          }
-        }
-        return frames;
-      }
-
-      for (let i = 0; i < 100; i++) {
-        const frameName = `frame_${String(i).padStart(4, '0')}.${outputFormat}`;
-        try {
-          const data = await ffmpeg.readFile(frameName);
-          const frameFile = createFrameFile(
-            data,
-            `${baseName}_keyframe_${i + 1}`,
-            outputFormat
-          );
-          frames.push(frameFile);
-
-          try {
-            await ffmpeg.deleteFile(frameName);
           } catch (e) {
             // ignore
           }
-        } catch (e) {
-          if (i === 0) {
-            console.log('No keyframes found, trying alternative method...');
-            // Try without number padding
-            for (let j = 0; j < 20; j++) {
-              const simpleName = `frame_${j}.${outputFormat}`;
-              try {
-                const data = await ffmpeg.readFile(simpleName);
-                const frameFile = createFrameFile(
-                  data,
-                  `${baseName}_keyframe_${j + 1}`,
-                  outputFormat
-                );
-                frames.push(frameFile);
-              } catch (e2) {
-                break;
-              }
-            }
-          }
-          break;
         }
       }
     }
