@@ -1,0 +1,21 @@
+{
+  "codeSandbox": {
+    "title": "代码沙盒",
+    "description": "在安全的沙盒环境中运行 HTML、CSS 和 JavaScript 代码，并实时预览。完全离线工作。",
+    "shortDescription": "运行 HTML/CSS/JS 并实时预览",
+    "longDescription": "一个类似 JSFiddle 的浏览器端代码沙盒，但完全离线使用。编辑 HTML、CSS 和 JavaScript 代码，即时查看实时预览。无需互联网连接——一切都在浏览器中本地运行。",
+    "settings": "设置",
+    "layout": "布局",
+    "horizontal": "水平",
+    "vertical": "垂直",
+    "autoRefresh": "自动刷新",
+    "preview": "预览",
+    "run": "运行",
+    "download": "下载",
+    "templates": "模板",
+    "toolInfo": {
+      "title": "如何使用代码沙盒",
+      "description": "在编辑器面板中编写 HTML、CSS 和 JavaScript 代码。预览会自动更新（如果启用了自动刷新）或在您点击「运行」按钮时更新。您可以在水平和垂直布局之间切换，并从内置模板中选择以快速开始。"
+    }
+  }
+}

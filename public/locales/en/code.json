@@ -1,0 +1,21 @@
+{
+  "codeSandbox": {
+    "title": "Code Sandbox",
+    "description": "Run HTML, CSS, and JavaScript code in a secure sandbox environment with live preview. Works completely offline.",
+    "shortDescription": "Run HTML/CSS/JS with live preview",
+    "longDescription": "A browser-based code sandbox similar to JSFiddle, but completely offline. Edit HTML, CSS, and JavaScript code and see the live preview instantly. No internet connection required - everything runs locally in your browser.",
+    "settings": "Settings",
+    "layout": "Layout",
+    "horizontal": "Horizontal",
+    "vertical": "Vertical",
+    "autoRefresh": "Auto Refresh",
+    "preview": "Preview",
+    "run": "Run",
+    "download": "Download",
+    "templates": "Templates",
+    "toolInfo": {
+      "title": "How to Use Code Sandbox",
+      "description": "Write your HTML, CSS, and JavaScript code in the editor panels. The preview will update automatically (if auto-refresh is enabled) or when you click the Run button. You can switch between horizontal and vertical layouts, and choose from built-in templates to get started quickly."
+    }
+  }
+}

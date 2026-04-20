@@ -75,6 +75,14 @@
     "xml": {
       "description": "Tools for working with XML data structures - viewer, beautifier, validator and much more",
       "title": "XML Tools"
+    },
+    "system": {
+      "description": "Tools for interacting with your local system and files - folder comparison, file system access, and more.",
+      "title": "System Tools"
+    },
+    "code": {
+      "description": "Tools for developers and coding - code sandbox, HTML/CSS/JS preview, and more.",
+      "title": "Developer Tools"
     }
   },
   "converters": {

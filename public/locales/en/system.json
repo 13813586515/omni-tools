@@ -1,0 +1,38 @@
+{
+  "folderCompare": {
+    "title": "Folder Compare",
+    "description": "Compare two local folders and find differences using MD5 hash or file size comparison.",
+    "shortDescription": "Compare two folders to find differences",
+    "longDescription": "This tool allows you to compare two local folders using the File System Access API. You can compare files by MD5 hash (most accurate) or by file size (faster). The tool will show you files that are added, removed, modified, or unchanged between the two folders.",
+    "selectFolders": "Select Folders to Compare",
+    "selectFolder1": "Select Folder 1",
+    "selectFolder2": "Select Folder 2",
+    "filesCount": "{{count}} files",
+    "compare": "Compare",
+    "comparing": "Comparing...",
+    "comparingShort": "Comparing",
+    "computingHashes": "Computing MD5 hashes. This may take a while for large files...",
+    "comparisonSettings": "Comparison Settings",
+    "compareByMd5": "Compare by MD5 Hash",
+    "compareByMd5Description": "Most accurate comparison, but slower for large files",
+    "compareBySize": "Compare by File Size",
+    "compareBySizeDescription": "Faster comparison, but less accurate",
+    "folder1": "Folder 1",
+    "folder2": "Folder 2",
+    "added": "Added",
+    "removed": "Removed",
+    "modified": "Modified",
+    "unchanged": "Unchanged",
+    "addedFiles": "Added Files (only in Folder 2)",
+    "removedFiles": "Removed Files (only in Folder 1)",
+    "modifiedFiles": "Modified Files (changed content)",
+    "unchangedFiles": "Unchanged Files (same in both)",
+    "summary": "Comparison Summary",
+    "errorSelectingFolder": "Error selecting folder. Please try again.",
+    "errorComparing": "Error comparing folders. Please try again.",
+    "toolInfo": {
+      "title": "How to Use Folder Compare",
+      "description": "Select two folders from your local filesystem. Choose between MD5 hash comparison (accurate but slow) or file size comparison (fast but less accurate). Click Compare to see the differences between the two folders."
+    }
+  }
+}
